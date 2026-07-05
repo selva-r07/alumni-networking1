@@ -88,7 +88,7 @@ export default function RegisterPage() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Registration failed');
-      router.push('/login?status=success');
+      window.location.href = '/login?status=success';
     } catch (err: any) {
       setErrors({ general: err.message });
       setLoading(false);
@@ -496,10 +496,10 @@ export default function RegisterPage() {
                     className={`field-input ${errors.password && touched.password ? 'has-error' : ''}`}
                     style={{ paddingRight: '44px' }}
                   />
-                  {/* <button type="button" onClick={() => setShowPassword(p => !p)}
+                  <button type="button" onClick={() => setShowPassword(p => !p)}
                     className="absolute right-3.5 top-1/2 -translate-y-1/2 text-black/25 hover:text-black/60 transition-colors">
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  </button> */}
+                  </button>
                 </div>
                 {errors.password && touched.password && (
                   <p className="error-msg"><AlertCircle className="w-3 h-3" />{errors.password}</p>
@@ -519,10 +519,10 @@ export default function RegisterPage() {
                     className={`field-input ${errors.confirmPassword && touched.confirmPassword ? 'has-error' : ''}`}
                     style={{ paddingRight: '44px' }}
                   />
-                  {/* <button type="button" onClick={() => setShowConfirm(p => !p)}
+                  <button type="button" onClick={() => setShowConfirm(p => !p)}
                     className="absolute right-3.5 top-1/2 -translate-y-1/2 text-black/25 hover:text-black/60 transition-colors">
                     {showConfirm ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  </button> */}
+                  </button>
                 </div>
                 {errors.confirmPassword && touched.confirmPassword && (
                   <p className="error-msg"><AlertCircle className="w-3 h-3" />{errors.confirmPassword}</p>

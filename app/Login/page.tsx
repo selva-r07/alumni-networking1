@@ -1,10 +1,17 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Users, GraduationCap, Shield, ArrowLeft } from 'lucide-react';
+import { Users, GraduationCap, Shield, ArrowLeft, CheckCircle } from 'lucide-react';
 
 export default function LoginPage() {
+  const [registered, setRegistered] = useState(false);
+
+  useEffect(() => {
+    if (window.location.search.includes('status=success')) setRegistered(true);
+  }, []);
+
   return (
     <div
       className="min-h-screen bg-[#f5f0e8] flex"
@@ -164,7 +171,7 @@ export default function LoginPage() {
           <div className="a5 flex flex-col">
             {[
               {
-                href: '/login/admin',
+                href: '/login/AdminLogin',
                 Icon: Shield,
                 num: '01',
                 label: 'Admin Portal',
@@ -172,7 +179,7 @@ export default function LoginPage() {
                 accent: '#1a1a2e',
               },
               {
-                href: '/login/alumni',
+                href: '/login/AlumniLogin',
                 Icon: GraduationCap,
                 num: '02',
                 label: 'Alumni Portal',
@@ -180,7 +187,7 @@ export default function LoginPage() {
                 accent: '#c8a84b',
               },
               {
-                href: '/login/student',
+                href: '/login/StudentLogin',
                 Icon: Users,
                 num: '03',
                 label: 'Student Portal',
@@ -231,6 +238,15 @@ export default function LoginPage() {
               </Link>
             ))}
           </div>
+
+          {/* Registration success banner */}
+          {registered && (
+            <div className="a5 mb-6 p-4 flex items-center gap-3"
+              style={{ background: '#f0fdf4', border: '1px solid rgba(34,197,94,0.3)', borderLeft: '3px solid #22c55e' }}>
+              <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+              <p className="text-green-700 text-[13px] font-sans">Account created! Sign in below.</p>
+            </div>
+          )}
 
           {/* Register nudge */}
           <div className="a6 mt-8 flex items-center gap-2">
