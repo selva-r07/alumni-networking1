@@ -85,7 +85,7 @@ export default function RegisterPage() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Registration failed');
-      window.location.href = '/login?status=success';
+      window.location.href = '/Login?status=success';
     } catch (err: any) {
       setErrors({ general: err.message });
       setLoading(false);
@@ -278,7 +278,7 @@ export default function RegisterPage() {
 
           {/* Back */}
           <div className="a1 mb-8">
-            <Link href="/login"
+            <Link href="/Login"
               className="inline-flex items-center gap-2 text-[11px] font-sans font-bold tracking-widest uppercase text-black/30 hover:text-black transition-colors"
               style={{ textDecoration: 'none' }}>
               <ArrowLeft className="w-3.5 h-3.5" />
@@ -541,7 +541,7 @@ export default function RegisterPage() {
             <div className="flex-1 h-px bg-black/[0.07]" />
             <p className="text-black/35 text-[12px] font-sans">
               Already have an account?{' '}
-              <Link href="/login"
+              <Link href="/Login"
                 className="font-bold text-black/60 hover:text-[#c8a84b] transition-colors"
                 style={{ textDecoration: 'none' }}>
                 Sign In
