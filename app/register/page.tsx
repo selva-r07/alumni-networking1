@@ -1,15 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
   Users, Eye, EyeOff, AlertCircle, ArrowLeft,
-  GraduationCap, Shield, Briefcase, Building, ArrowRight
+  GraduationCap, Briefcase, Building, ArrowRight
 } from 'lucide-react';
 
 export default function RegisterPage() {
-  const router = useRouter();
 
   const [formData, setFormData] = useState({
     email: '', password: '', confirmPassword: '',
@@ -23,8 +21,7 @@ export default function RegisterPage() {
   const [loading, setLoading]                 = useState(false);
   const [showPassword, setShowPassword]       = useState(false);
   const [showConfirm, setShowConfirm]         = useState(false);
-  const [focused, setFocused]                 = useState<string | null>(null);
-  const [step, setStep]                       = useState<1 | 2>(1);
+  const [focused, setFocused] = useState<string | null>(null);
 
   /* ── Validation ── */
   const validateField = (name: string, value: string) => {
