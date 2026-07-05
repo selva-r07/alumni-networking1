@@ -85,7 +85,7 @@ export default function RegisterPage() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Registration failed');
-      window.location.href = '/Login?status=success';
+      window.location.href = '/login?status=success';
     } catch (err: any) {
       setErrors({ general: err.message });
       setLoading(false);
@@ -278,7 +278,7 @@ export default function RegisterPage() {
 
           {/* Back */}
           <div className="a1 mb-8">
-            <Link href="/Login"
+            <Link href="/login"
               className="inline-flex items-center gap-2 text-[11px] font-sans font-bold tracking-widest uppercase text-black/30 hover:text-black transition-colors"
               style={{ textDecoration: 'none' }}>
               <ArrowLeft className="w-3.5 h-3.5" />
